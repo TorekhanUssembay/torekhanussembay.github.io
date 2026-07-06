@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="description" content="Personal website of Torekhan Ussembay from Kazakhstan. Technology, literature, sport, projects, books, movies and writing from a Central Asian perspective." />
+
+  <meta name="robots" content="index, follow" />
+
+  <link rel="canonical" href="https://torekhanussembay.github.io/" />
+
+  <meta property="og:title" content="Torekhan Ussembayev" />
+  <meta property="og:description" content="Personal website of Torekhan Ussembay — technology, literature, sport, projects, books, movies, and writing from Central Asia." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://torekhanussembay.github.io/" />
+  <meta property="og:image" content="https://torekhanussembay.github.io/images/me.jpg" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Torekhan Ussembayev" />
+  <meta name="twitter:description" content="Technology, literature, sport, projects, books, movies, and writing from a Central Asian perspective." />
+  <meta name="twitter:image" content="https://torekhanussembay.github.io/images/me.jpg" />
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Torekhan Ussembay | Personal website</title>
+  <style>
+    :root {
+      --bg: #050505;
+      --bg-soft: #101010;
+      --text: #f5f5f5;
+      --muted: #b9b9b9;
+      --gold: #d4af37;
+      --gold-soft: #f0d98c;
+      --border: rgba(212, 175, 55, 0.22);
+      --card: rgba(255, 255, 255, 0.035);
+      --card-strong: rgba(255, 255, 255, 0.055);
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.34);
+      --max: 1160px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 96px; }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at top right, rgba(212, 175, 55, 0.08), transparent 34rem),
+        radial-gradient(circle at bottom left, rgba(240, 217, 140, 0.035), transparent 30rem),
+        var(--bg);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.7;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .eyebrow {
+      color: var(--gold-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.76rem;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 5vw, 4.35rem);
+      margin: 0 0 12px;
+      line-height: 1.06;
+    }
+
+    .subtitle {
+      max-width: 760px;
+      color: #e8e8e8;
+      font-size: clamp(1rem, 1.8vw, 1.12rem);
+      margin: 0;
+    }
+
+    .about-hero {
+      position: relative;
+      min-height: clamp(360px, 52vw, 520px);
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 26px;
+      background:
+        linear-gradient(to bottom, rgba(0,0,0,0.06), rgba(0,0,0,0.42)),
+        url('images/me.jpg') center/cover no-repeat;
+      margin-bottom: 22px;
+    }
+
+    .about-hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0 0;
+      height: 58%;
+      background: linear-gradient(to bottom, rgba(0,0,0,0), rgba(5,5,5,0.78), rgba(5,5,5,0.96));
+      pointer-events: none;
+    }
+
+    .about-hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 850px;
+      padding: clamp(24px, 5vw, 42px);
+    }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(16px);
+      background: rgba(5, 5, 5, 0.88);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      color: var(--gold);
+      font-weight: 750;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+
+    .brand-trigger {
+      border: 0;
+      background: transparent;
+      padding: 0;
+      font: inherit;
+      cursor: pointer;
+      transition: color 180ms ease, transform 180ms ease;
+    }
+
+    .brand-trigger:hover {
+      color: var(--gold-soft);
+      transform: translateY(-1px);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      align-items: center;
+      font-size: 0.94rem;
+    }
+
+    .nav-link,
+    .panel-trigger,
+    .lang-switch {
+      border: 1px solid transparent;
+      border-radius: 999px;
+      padding: 8px 13px;
+      color: var(--muted);
+      background: transparent;
+      font: inherit;
+      cursor: pointer;
+      transition: color 180ms ease, background 180ms ease, border-color 180ms ease, transform 180ms ease;
+    }
+
+    .nav-link:hover,
+    .panel-trigger:hover,
+    .lang-switch:hover,
+    .panel-trigger.active {
+      color: var(--gold-soft);
+      background: rgba(255,255,255,0.045);
+      border-color: rgba(212, 175, 55, 0.18);
+      transform: translateY(-1px);
+    }
+
+    .lang-switch {
+      color: var(--text);
+      border-color: var(--border);
+      background: var(--card);
+    }
+
+    main {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 26px 24px 76px;
+    }
+
+    .intro-row {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: 22px;
+      align-items: stretch;
+      margin-bottom: 24px;
+    }
+
+    .intro-card,
+    .content-shell {
+      border: 1px solid rgba(255,255,255,0.08);
+      background: linear-gradient(145deg, rgba(255,255,255,0.055), rgba(255,255,255,0.024));
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .intro-card {
+      padding: 26px;
+    }
+
+    .intro-card h2,
+    .panel h2 {
+      color: var(--gold);
+      font-size: clamp(1.55rem, 3vw, 2.05rem);
+      line-height: 1.16;
+      margin: 0 0 14px;
+    }
+
+    .intro-card p,
+    .panel p,
+    .panel li {
+      color: var(--muted);
+    }
+
+    .section-menu {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .section-button {
+      width: 100%;
+      min-height: 112px;
+      padding: 18px;
+      border-radius: 22px;
+      border: 1px solid rgba(212, 175, 55, 0.12);
+      background: rgba(255,255,255,0.026);
+      color: var(--text);
+      text-align: left;
+      cursor: pointer;
+      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+    }
+
+    .section-button:hover,
+    .section-button.active {
+      transform: translateY(-3px);
+      border-color: rgba(212, 175, 55, 0.36);
+      background: rgba(212, 175, 55, 0.07);
+    }
+
+    .section-button strong {
+      display: block;
+      color: var(--gold-soft);
+      font-size: 1rem;
+      margin-bottom: 7px;
+    }
+
+    .section-button span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+
+    .content-shell {
+      min-height: 420px;
+      padding: clamp(22px, 4vw, 34px);
+      overflow: hidden;
+      position: relative;
+      scroll-margin-top: 96px;
+    }
+
+    .panel {
+      display: none;
+      animation: panelIn 360ms ease both;
+      scroll-margin-top: 96px;
+      padding-top: 2px;
+    }
+
+    .panel.active {
+      display: block;
+    }
+
+    @keyframes panelIn {
+      from {
+        opacity: 0;
+        transform: translateY(14px) scale(0.992);
+        filter: blur(5px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+      }
+    }
+
+    .lead {
+      max-width: 850px;
+      margin: 0 0 18px;
+      color: var(--muted);
+    }
+
+    .cards,
+    .skills-grid,
+    .links-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .mini-card {
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 19px;
+      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+    }
+
+    .mini-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(212, 175, 55, 0.26);
+      background: var(--card-strong);
+    }
+
+    .mini-card h3 {
+      margin: 0 0 9px;
+      color: var(--gold-soft);
+      font-size: 1.03rem;
+    }
+
+
+    .flip-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .flip-card {
+      min-height: 230px;
+      perspective: 1200px;
+      cursor: pointer;
+      outline: none;
+    }
+
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      min-height: 230px;
+      transform-style: preserve-3d;
+      transition: transform 620ms cubic-bezier(.2,.8,.2,1);
+    }
+
+    .flip-card:hover .flip-card-inner,
+    .flip-card:focus-visible .flip-card-inner,
+    .flip-card.flipped .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flip-face {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-radius: 22px;
+      padding: 22px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background:
+        linear-gradient(145deg, rgba(255,255,255,0.06), rgba(255,255,255,0.022));
+      backface-visibility: hidden;
+      overflow: hidden;
+    }
+
+    .flip-face::before {
+      content: "";
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      right: -58px;
+      top: -58px;
+      border-radius: 999px;
+      background: rgba(212, 175, 55, 0.08);
+      pointer-events: none;
+    }
+
+    .flip-front {
+      transform: rotateY(0deg);
+    }
+
+    .flip-back {
+      transform: rotateY(180deg);
+      background:
+        linear-gradient(145deg, rgba(212, 175, 55, 0.08), rgba(255,255,255,0.025));
+      border-color: rgba(212, 175, 55, 0.2);
+    }
+
+    .flip-kicker {
+      color: var(--gold-soft);
+      font-size: 0.76rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin: 0 0 10px;
+    }
+
+    .flip-card h3 {
+      margin: 0;
+      color: var(--gold-soft);
+      font-size: clamp(1.35rem, 2vw, 1.65rem);
+      line-height: 1.1;
+    }
+
+    .flip-card p {
+      margin: 0;
+    }
+
+    .flip-hint {
+      color: rgba(245,245,245,0.52);
+      font-size: 0.86rem;
+    }
+
+    .flip-back p {
+      color: var(--muted);
+      font-size: 0.96rem;
+      line-height: 1.65;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .compact-list {
+      columns: 2;
+      column-gap: 30px;
+    }
+
+    .muted { color: var(--muted); }
+
+    .link-list a {
+      color: var(--gold-soft);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.22);
+    }
+
+    .link-list a:hover {
+      color: var(--gold);
+      border-bottom-color: var(--gold);
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 24px 46px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .nav-wrap {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        justify-content: flex-start;
+      }
+
+      .intro-row,
+      .cards,
+      .flip-grid,
+      .skills-grid,
+      .links-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .section-menu {
+        grid-template-columns: 1fr;
+      }
+
+      .compact-list {
+        columns: 1;
+      }
+
+      .about-hero {
+        min-height: 460px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-wrap">
+      <button class="brand brand-trigger" type="button" data-panel="about"><strong>Torekhan Ussembay</strong></button>
+      <div class="nav-links" aria-label="Main navigation">
+        <button class="panel-trigger active" type="button" data-panel="about">About</button>
+        <button class="panel-trigger" type="button" data-panel="skills">Skills</button>
+        <button class="panel-trigger" type="button" data-panel="achievements">Achievements</button>
+        <button class="panel-trigger" type="button" data-panel="education">Education</button>
+        <button class="panel-trigger" type="button" data-panel="links">Links</button>
+        <a class="nav-link" href="books.html">Books</a>
+        <a class="nav-link" href="movies.html">Movies</a>
+        <a class="lang-switch" href="index_kz.html">Қазақша</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <div class="content-shell" id="content">
+      <section class="panel active" id="about" aria-labelledby="about-title">
+        <div class="about-hero" aria-label="Portrait and introduction">
+          <div class="about-hero-content">
+            <div class="eyebrow">From Central Asia to the World</div>
+            <h1 id="about-title">Torekhan Ussembay</h1>
+            <p class="subtitle">
+              A person shaped by technology, literature, sport and the desire to bring a regional perspective into the global world.
+            </p>
+          </div>
+        </div>
+        <p class="lead">
+          Hi, my name is Torekhan. I am from Kazakhstan, Central Asia.
+          Through my work, I hope to share a Central Asian perspective on technology, creativity, culture and the way we understand the world. 
+          This website is a place where I explore ideas, build projects and tell my stories.
+        </p>
+        <div class="flip-grid" aria-label="About cards">
+          <div class="flip-card" tabindex="0" role="button" aria-label="Technology card. Hover, focus, or tap to flip.">
+            <div class="flip-card-inner">
+              <div class="flip-face flip-front">
+                <div>
+                  <p class="flip-kicker">Creation</p>
+                  <h3>Technology</h3>
+                </div>
+                <p class="flip-hint">Hover or tap to read</p>
+              </div>
+              <div class="flip-face flip-back">
+                <p>
+                  I am building my path in IT through FOSS, software engineering and constant learning. For me, technology is not only about tools — it is also about discipline, curiosity and consistency. Instead of talking about the future, you can create it.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="flip-card" tabindex="0" role="button" aria-label="Family card. Hover, focus, or tap to flip.">
+            <div class="flip-card-inner">
+              <div class="flip-face flip-front">
+                <div>
+                  <p class="flip-kicker">Roots</p>
+                  <h3>Family</h3>
+                </div>
+                <p class="flip-hint">Hover or tap to read</p>
+              </div>
+              <div class="flip-face flip-back">
+                <p>
+                  Family is important. More and more, I think not only about what we can give children, but what we can teach them — and how to become a good example for them. Every next generation 
+                  should be smarter, kinder and better than us. <br> Let's build that society together.
+                  <br> If your wife is good, you become happy man. If not, you become philosopher.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="flip-card" tabindex="0" role="button" aria-label="Sport card. Hover, focus, or tap to flip.">
+            <div class="flip-card-inner">
+              <div class="flip-face flip-front">
+                <div>
+                  <p class="flip-kicker">Rhythm</p>
+                  <h3>Sport</h3>
+                </div>
+                <p class="flip-hint">Hover or tap to read</p>
+              </div>
+              <div class="flip-face flip-back">
+                <p>
+                  Football, hockey, volleyball, tennis, motor sport and many more all have a place in my life. Sport teaches rhythm, focus, teamwork and respect for the process.
+                  <br> 
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="flip-card" tabindex="0" role="button" aria-label="Literature card. Hover, focus, or tap to flip.">
+            <div class="flip-card-inner">
+              <div class="flip-face flip-front">
+                <div>
+                  <p class="flip-kicker">Soul explorer</p>
+                  <h3>Literature</h3>
+                </div>
+                <p class="flip-hint">Hover or tap to read</p>
+              </div>
+              <div class="flip-face flip-back">
+                <p>
+                  Sometimes Holden, John Galt, Santiago, Russian writers and Kazakh writers speak to different parts of the soul. Reading makes you think. Thinking is action. Action is life.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="flip-card" tabindex="0" role="button" aria-label="Literature card. Hover, focus, or tap to flip.">
+            <div class="flip-card-inner">
+              <div class="flip-face flip-front">
+                <div>
+                  <p class="flip-kicker">Inside out</p>
+                  <h3>Writing</h3>
+                </div>
+                <p class="flip-hint">Hover or tap to read</p>
+              </div>
+              <div class="flip-face flip-back">
+                <p>
+                  Sometimes, readers become writers. There comes a moment when simply observing is no longer enough and 
+                  the soul begins to seek the act of creation. Writing is my way of answering that call. Here you'll find 
+                  stories, essays and reflections born from that desire to create.
+
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" id="skills" aria-labelledby="skills-title">
+        <h2 id="skills-title">Skills</h2>
+        <p class="lead">One thought never fails to amuse me: humans spend a lifetime upgrading themselves, only to discover that mortality doesn't care about version numbers.</p>
+        <p class="lead">The qualities listed below are part of who I am today, shaped by my experiences, education and 
+          curiosity. None of them are complete, and I don't expect them to be. Every skill can be refined, every perspective 
+          broadened and every day offers another opportunity to improve.
+        </p>
+        <div class="skills-grid">
+          <div class="mini-card">
+            <h3>Programming</h3>
+            <ul>
+              <li><strong>Python</strong> <span class="muted">— exceptions, file I/O, standard library</span></li>
+              <li><strong>Go</strong> <span class="muted">— generics, concurrency, error handling, interfaces & composition, synchronization primitives, package design, 
+                compiler & tooling, profiling & optimization, testing, memory management, runtime internals, networking, context package
+              </span></li>
+              <li><strong>HTML, CSS, JavaScript</strong></li>
+              <li> <strong>PHP, C</strong> </li>
+              <li> <strong>DSA, SOLID, OOP, Design patterns, Functional programming</strong> </li>
+            </ul>
+          </div>
+          <div class="mini-card">
+            <h3>Frameworks & Tools</h3>
+            <ul>
+              <li>Django </li>
+              <li>Symfony </li>
+              <li>PostgreSQL, sqlc, MySQL, Redis <span class="muted">— queries, design</span></li>
+              <li>Docker/Podman, Nginx, API Gateway, Swagger </li>
+              <li>Gin </li>
+              <li>Git, GiLab, GitHub</li>
+              <li>Bootstrap, Tailwind, WordPress</li>
+              <li>Adobe (Photoshop, PremierPro)</li>
+              <li>LibreOffice</li>
+              <li>Jira, Trello, Figma, Confluence, AI tools</li>
+            </ul>
+          </div>
+
+          <div class="mini-card">
+            <h3>Soft Skills</h3>
+            <ul class="compact-list">
+              <li>Clear communication</li>
+              <li>Team collaboration</li>
+              <li>Analytical problem-solving</li>
+              <li>Critical thinking</li>
+              <li>Ownership & accountability</li>
+              <li>Time/energy management</li>
+              <li>Adaptability</li>
+              <li>Attention to details</li>
+              <li>Continuous learning</li>
+              <li>Technical documentation</li>
+            </ul>
+          </div>
+          <div class="mini-card">
+            <h3>Linux</h3>
+            <ul>
+              <li>Bash scripting</li>
+              <li>System management</li>
+              <li>Terminal commands</li>
+              <li>FOSS mindset</li>
+            </ul>
+          </div>
+
+          <div class="mini-card">
+            <h3>Project management</h3>
+            <ul>
+              <li>Agile, Scrum, Retrospective, Sprint - planning, review</li>
+              <li>Waterfall</li>
+              <li>CustDev, RoadMap, Customer Journey Map, Stakeholder management</li>
+              <li>Kanban, SDLC, A/B test, User Story Mapping</li>
+            </ul>
+          </div>
+          <div class="mini-card">
+            <h3>Personal</h3>
+            <ul>
+              <li>Piano, guitar</li>
+              <li>Football (playing + analysis)</li>
+              <li>Video production</li>
+              <li>Art interpretation</li>
+            </ul>
+          </div>
+          <div class="mini-card">
+            <h3>Least important</h3>
+            <ul>
+              <li>Cooking</li>
+              <li>BeatBox basics or BitBox</li>
+              <li>Writing short stories, poems</li>
+              <li>StandUp</li>
+              <li>Basic understanding of life :)</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" id="achievements" aria-labelledby="achievements-title">
+        <h2 id="achievements-title">Achievements & Projects</h2>
+        <div class="cards">
+          <div class="mini-card">
+            <h3>Projects</h3>
+            <p>Anything might be a project. It should serve for good.</p>
+            <p class="muted">Content will be added later.</p>
+          </div>
+          <div class="mini-card">
+            <h3>Achievements & Certificates</h3>
+            <p>Is the job done? I do not think so.</p>
+            <ul class="link-list">
+              <li><a href="Certificates/Personal/Udemy.pdf" target="_blank" rel="noopener">Web Development course</a></li>
+              <li><a href="Certificates/Kronis Education.pdf" target="_blank" rel="noopener">Terricon Valley — Acceleration program</a></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" id="education" aria-labelledby="education-title">
+        <h2 id="education-title">Education, Languages & Location</h2>
+        <div class="cards">
+          <div class="mini-card">
+            <h3>Education</h3>
+            <ul>
+              <li>Karaganda Technical University</li>
+              <li>School 21</li>
+            </ul>
+          </div>
+          <div class="mini-card">
+            <h3>Languages</h3>
+            <ul>
+              <li>Kazakh — Native</li>
+              <li>Russian — Native</li>
+              <li>English — Advanced</li>
+              <li>German — Beginner</li>
+            </ul>
+          </div>
+          <div class="mini-card">
+            <h3>Location</h3>
+            <p>Planet Earth</p>
+          </div>
+          <div class="mini-card">
+            <h3>Courses</h3>
+            <ul>
+              <li>Udemy</li>
+              <li>Stepik</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" id="links" aria-labelledby="links-title">
+        <h2 id="links-title">Links</h2>
+        <div class="links-grid">
+          <div class="mini-card">
+            <h3>Main Platforms</h3>
+            <ul class="link-list">
+              <li><a href="https://github.com/TorekhanUssembay" target="_blank" rel="noopener">GitHub</a></li>
+              <li><a href="https://www.linkedin.com/in/torekhan-ussembay-251280358/" target="_blank" rel="noopener">LinkedIn</a></li>
+            </ul>
+          </div>
+          <div class="mini-card">
+            <h3>YouTube</h3>
+            <ul class="link-list">
+              <li><a href="https://www.youtube.com/@TorekhanUssembayev-o5l" target="_blank" rel="noopener">Lifestyle channel</a></li>
+              <li><a href="https://www.youtube.com/@CodeAndPlaywithTorekhan" target="_blank" rel="noopener">Coding & gaming channel</a></li>
+            </ul>
+          </div>
+          <div class="mini-card">
+            <h3>Instagram</h3>
+            <ul class="link-list">
+              <li><a href="https://www.instagram.com/torekhanoilary/" target="_blank" rel="noopener">Kazakh language personal Instagram (lifestyle, opinion)</a></li>
+              <li><a href="https://www.instagram.com/torekhanshares/" target="_blank" rel="noopener">Kazakh language Instagram for sharing knowledge</a></li>
+            </ul>
+          </div>
+          <div class="mini-card">
+            <h3>Writing</h3>
+            <ul class="link-list">
+              <li><a href="short_stories_list.html">Short stories</a></li>
+            </ul>
+          </div>
+          <div class="mini-card">
+            <h3>Torekhan online</h3>
+            <ul class="link-list">
+              <li><a href="https://abai.kz/index.php/post/183227" target="_blank" rel="noopener">Published short story</a></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <p>Torekhan Ussembay — From Central Asia to the World</p>
+  </footer>
+
+  <script>
+    const triggers = document.querySelectorAll('[data-panel]');
+    const panels = document.querySelectorAll('.panel');
+
+    function showPanel(panelId) {
+      panels.forEach(panel => {
+        panel.classList.toggle('active', panel.id === panelId);
+      });
+
+      triggers.forEach(trigger => {
+        trigger.classList.toggle('active', trigger.dataset.panel === panelId);
+      });
+
+      const content = document.getElementById('content');
+      const navbar = document.querySelector('.navbar');
+      if (content) {
+        const navHeight = navbar ? navbar.offsetHeight : 0;
+        const top = content.getBoundingClientRect().top + window.scrollY - navHeight - 18;
+        window.scrollTo({ top: Math.max(top, 0), behavior: 'smooth' });
+      }
+
+      history.replaceState(null, '', `#${panelId}`);
+    }
+
+    triggers.forEach(trigger => {
+      trigger.addEventListener('click', () => showPanel(trigger.dataset.panel));
+    });
+
+    const initialPanel = window.location.hash.replace('#', '');
+    if (initialPanel && document.getElementById(initialPanel)) {
+      showPanel(initialPanel);
+    }
+
+    document.querySelectorAll('.flip-card').forEach(card => {
+      card.addEventListener('click', () => {
+        card.classList.toggle('flipped');
+      });
+
+      card.addEventListener('keydown', event => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          card.classList.toggle('flipped');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Books — Torekhan Ussembay</title>
+  <style>
+    :root {
+      --bg: #050505;
+      --bg-soft: #101010;
+      --text: #f5f5f5;
+      --muted: #b9b9b9;
+      --gold: #d4af37;
+      --gold-soft: #f0d98c;
+      --border: rgba(212, 175, 55, 0.22);
+      --card: rgba(255, 255, 255, 0.035);
+      --card-strong: rgba(255, 255, 255, 0.055);
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.34);
+      --max: 1160px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top right, rgba(212, 175, 55, 0.08), transparent 34rem),
+        radial-gradient(circle at bottom left, rgba(240, 217, 140, 0.035), transparent 30rem),
+        var(--bg);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.7;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(16px);
+      background: rgba(5, 5, 5, 0.88);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      color: var(--gold);
+      font-weight: 750;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      align-items: center;
+      font-size: 0.94rem;
+    }
+
+    .nav-link,
+    .lang-switch {
+      border: 1px solid transparent;
+      border-radius: 999px;
+      padding: 8px 13px;
+      color: var(--muted);
+      background: transparent;
+      font: inherit;
+      transition: color 180ms ease, background 180ms ease, border-color 180ms ease, transform 180ms ease;
+    }
+
+    .nav-link:hover,
+    .nav-link.active,
+    .lang-switch:hover {
+      color: var(--gold-soft);
+      background: rgba(255,255,255,0.045);
+      border-color: rgba(212, 175, 55, 0.18);
+      transform: translateY(-1px);
+    }
+
+    .lang-switch {
+      color: var(--text);
+      border-color: var(--border);
+      background: var(--card);
+    }
+
+    main {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 42px 24px 76px;
+    }
+
+    .library-shell {
+      border: 1px solid rgba(255,255,255,0.08);
+      background: linear-gradient(145deg, rgba(255,255,255,0.055), rgba(255,255,255,0.024));
+      border-radius: 30px;
+      box-shadow: var(--shadow);
+      padding: clamp(24px, 4vw, 42px);
+      overflow: hidden;
+    }
+
+    .library-hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(260px, 0.95fr);
+      gap: 24px;
+      align-items: end;
+      margin-bottom: 24px;
+    }
+
+    .eyebrow {
+      color: var(--gold-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.78rem;
+      margin: 0 0 10px;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 5vw, 4rem);
+      margin: 0 0 12px;
+      line-height: 1.06;
+    }
+
+    .lead {
+      max-width: 760px;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .toolbar {
+      display: flex;
+      gap: 10px;
+      justify-content: flex-end;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .search {
+      width: min(100%, 360px);
+      border: 1px solid rgba(212, 175, 55, 0.18);
+      background: rgba(255,255,255,0.035);
+      color: var(--text);
+      border-radius: 999px;
+      padding: 11px 15px;
+      outline: none;
+    }
+
+    .search:focus {
+      border-color: rgba(212, 175, 55, 0.42);
+      box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.07);
+    }
+
+    .library-layout {
+      display: grid;
+      grid-template-columns: minmax(220px, 0.42fr) minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+    }
+
+    .list-panel,
+    .detail-panel {
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 24px;
+      background: rgba(255,255,255,0.026);
+    }
+
+    .list-panel {
+      padding: 10px;
+      max-height: 640px;
+      overflow: auto;
+    }
+
+    .item-button {
+      width: 100%;
+      display: block;
+      border: 1px solid transparent;
+      border-radius: 18px;
+      padding: 15px;
+      color: var(--text);
+      background: transparent;
+      text-align: left;
+      cursor: pointer;
+      transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+    }
+
+    .item-button + .item-button { margin-top: 6px; }
+
+    .item-button:hover,
+    .item-button.active {
+      transform: translateY(-1px);
+      background: rgba(212, 175, 55, 0.07);
+      border-color: rgba(212, 175, 55, 0.25);
+    }
+
+    .item-title {
+      display: block;
+      color: var(--gold-soft);
+      font-weight: 700;
+      line-height: 1.25;
+    }
+
+    .item-meta {
+      display: block;
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-top: 4px;
+    }
+
+    .detail-panel {
+      min-height: 520px;
+      padding: clamp(22px, 4vw, 36px);
+      animation: panelIn 360ms ease both;
+    }
+
+    @keyframes panelIn {
+      from { opacity: 0; transform: translateY(14px) scale(0.992); filter: blur(5px); }
+      to { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+    }
+
+    .detail-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: flex-start;
+      margin-bottom: 18px;
+    }
+
+    .detail-panel h2 {
+      color: var(--gold);
+      font-size: clamp(1.55rem, 3vw, 2.2rem);
+      line-height: 1.16;
+      margin: 0 0 8px;
+    }
+
+    .meta-line,
+    .empty,
+    .entry p {
+      color: var(--muted);
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 16px 0 0;
+    }
+
+    .tag,
+    .count-pill {
+      border: 1px solid rgba(212, 175, 55, 0.18);
+      background: rgba(212, 175, 55, 0.055);
+      color: var(--gold-soft);
+      border-radius: 999px;
+      padding: 5px 10px;
+      font-size: 0.82rem;
+    }
+
+    .entries {
+      display: grid;
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .entry {
+      border: 1px solid rgba(255,255,255,0.08);
+      background: var(--card);
+      border-radius: 20px;
+      padding: 18px;
+    }
+
+    .entry-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .entry-year {
+      color: var(--gold-soft);
+      font-weight: 700;
+    }
+
+    .rating {
+      color: var(--gold-soft);
+      font-size: 0.9rem;
+    }
+
+    .recommend {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 24px 46px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    @media (max-width: 860px) {
+      .nav-wrap,
+      .library-hero,
+      .library-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-wrap {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links,
+      .toolbar {
+        justify-content: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-wrap">
+      <a class="brand" href="index.html">Torekhan Ussembay</a>
+      <div class="nav-links" aria-label="Main navigation">
+        <a class="nav-link" href="index.html#about">About</a>
+        <a class="nav-link" href="index.html#skills">Skills</a>
+        <a class="nav-link" href="index.html#achievements">Achievements</a>
+        <a class="nav-link" href="index.html#education">Education</a>
+        <a class="nav-link" href="index.html#links">Links</a>
+        <a class="nav-link active" href="books.html">Books</a>
+        <a class="nav-link" href="movies.html">Movies</a>
+        <a class="lang-switch" href="index_kz.html">Қазақша</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="library-shell" aria-labelledby="page-title">
+      <div class="library-hero">
+        <div>
+          <p class="eyebrow">Personal library</p>
+          <h1 id="page-title">Books</h1>
+          <p class="lead">A quiet archive of books I have read, reread, recommended and thought about over time.</p>
+        </div>
+        <div class="toolbar">
+          <input class="search" id="searchInput" type="search" placeholder="Search by title, author, category..." aria-label="Search books" />
+        </div>
+      </div>
+
+      <div class="library-layout">
+        <aside class="list-panel" id="itemList" aria-label="Book list"></aside>
+        <article class="detail-panel" id="detailPanel" aria-live="polite">
+          <p class="empty">Loading books...</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Torekhan Ussembay — From Central Asia to the World</p>
+  </footer>
+
+  <script>
+    const DATA_URL = './data/books.json';
+    let items = [];
+    let activeId = null;
+
+    const itemList = document.getElementById('itemList');
+    const detailPanel = document.getElementById('detailPanel');
+    const searchInput = document.getElementById('searchInput');
+
+    function escapeHtml(value) {
+      return String(value ?? '').replace(/[&<>'"]/g, char => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'
+      }[char]));
+    }
+
+    function normalize(value) {
+      return String(value ?? '').toLowerCase();
+    }
+
+    function itemMatches(item, query) {
+      const text = [
+        item.title,
+        item.author,
+        ...(item.categories || []),
+        ...(item.entries || []).flatMap(entry => [entry.readYear, ...(entry.opinion || []), ...(entry.recommendTo || [])])
+      ].join(' ');
+      return normalize(text).includes(normalize(query));
+    }
+
+    function renderList(list) {
+      if (!list.length) {
+        itemList.innerHTML = '<p class="empty" style="padding: 14px;">No books found.</p>';
+        detailPanel.innerHTML = '<p class="empty">Try another search phrase.</p>';
+        return;
+      }
+
+      if (!activeId || !list.some(item => item.id === activeId)) {
+        activeId = list[0].id;
+      }
+
+      itemList.innerHTML = list.map(item => `
+        <button class="item-button ${item.id === activeId ? 'active' : ''}" type="button" data-id="${escapeHtml(item.id)}">
+          <span class="item-title">${escapeHtml(item.title)}</span>
+          <span class="item-meta">${escapeHtml(item.author)} · ${item.entries?.length || 0} ${item.entries?.length === 1 ? 'entry' : 'entries'}</span>
+        </button>
+      `).join('');
+
+      document.querySelectorAll('[data-id]').forEach(button => {
+        button.addEventListener('click', () => {
+          activeId = button.dataset.id;
+          renderList(getFilteredItems());
+          renderDetail(items.find(item => item.id === activeId));
+        });
+      });
+
+      renderDetail(items.find(item => item.id === activeId));
+    }
+
+    function renderDetail(item) {
+      if (!item) return;
+
+      const tags = (item.categories || []).map(tag => `<span class="tag">${escapeHtml(tag)}</span>`).join('');
+      const entries = [...(item.entries || [])]
+        .sort((a, b) => Number(b.readYear) - Number(a.readYear))
+        .map(entry => `
+          <section class="entry">
+            <div class="entry-head">
+              <span class="entry-year">Read in ${escapeHtml(entry.readYear)}</span>
+              ${entry.rating ? `<span class="rating">${escapeHtml(entry.rating)}/10</span>` : ''}
+            </div>
+            ${(entry.opinion || [])
+               .map(paragraph => `<p>${escapeHtml(paragraph)}</p>`)
+               .join('')}
+            <div class="recommend"><strong>Recommend to:</strong> ${(entry.recommendTo || []).map(escapeHtml).join(', ')}</div>
+          </section>
+        `).join('');
+
+      detailPanel.innerHTML = `
+        <div class="detail-top">
+          <div>
+            <h2>${escapeHtml(item.title)}</h2>
+            <div class="meta-line">${escapeHtml(item.author)}${item.language ? ` · ${escapeHtml(item.language)}` : ''}</div>
+            <div class="tags">${tags}</div>
+          </div>
+          <span class="count-pill">${item.entries?.length || 0} ${item.entries?.length === 1 ? 'reading' : 'readings'}</span>
+        </div>
+        <div class="entries">${entries}</div>
+      `;
+
+      detailPanel.style.animation = 'none';
+      detailPanel.offsetHeight;
+      detailPanel.style.animation = '';
+    }
+
+    function getFilteredItems() {
+      const query = searchInput.value.trim();
+      return query ? items.filter(item => itemMatches(item, query)) : items;
+    }
+
+    searchInput.addEventListener('input', () => {
+      activeId = null;
+      renderList(getFilteredItems());
+    });
+
+    fetch(DATA_URL, {cache: 'no-store'})
+      .then(response => {
+        if (!response.ok) throw new Error('Could not load books.json');
+        return response.json();
+      })
+      .then(data => {
+        items = data;
+        renderList(items);
+      })
+      .catch(error => {
+        detailPanel.innerHTML = `<p class="empty">${escapeHtml(error.message)}</p>`;
+      });
+  </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+[
+  {
+    "id": "the-alchemist",
+    "title": "The Alchemist",
+    "author": "Paulo Coelho",
+    "language": "English",
+    "categories": ["fiction", "philosophy", "journey"],
+    "entries": [
+      {
+        "readYear": 2016,
+        "recommendTo": ["people looking for meaning", "young dreamers", "teenagers"],
+        "opinion": ["As a teenager, I loved this book because it resonated with the dreams and aspirations that filled that stage of my life. When you're young, heroes often become the people you look up to and draw inspiration from, giving you someone to admire and, in a way, lean on. This book captures that feeling beautifully. I would even recommend including it in the school curriculum, as I believe it has the power to inspire young readers in a meaningful way. At the same time, I understood that sometimes we look for the things in the sky while we have it under our nose."],
+        "rating": 9
+      },
+      {
+        "readYear": 2026,
+        "recommendTo": ["people who need a calm reminder to keep moving"],
+        "opinion": [
+                        "Reading it again, I realized that this book is not only about dreaming and pursuing one's dreams, but also about searching for the true meaning of life. It reminds us that dreams alone are not enough—discipline, patience, and persistence are equally important. The treasure is more than a destination; it is a test of consistency, resilience, and faith in the journey.", 
+                        "One of the parts that stood out to me this time was the story of the king and his lesson about happiness. It made me reflect on how easily we overlook life's most important truths while chasing our ambitions.", 
+                        "There were so many meaningful moments that I completely missed the first time I read the book. Rereading it has given me a much deeper appreciation for its message. It is definitely a book worth reading more than once, as each revisit reveals something new."
+                    ],
+        "rating": 10
+      }
+    ]
+  }
+]

@@ -1,0 +1,23 @@
+[
+  {
+    "id": "forest-gump",
+    "title": "Forrest Gump",
+    "director": "Robert Zemeckis",
+    "releaseYear": 1994,
+    "genres": ["comedy-drama", "drama", "romance"],
+    "entries": [
+      {
+        "watchYear": 2014,
+        "recommendTo": ["people who believe in kindness"],
+        "opinion": "To me, this movie is about staying true to yourself while still achieving remarkable things. In today's world, that feels increasingly difficult. We often measure success by ambition, competition, and personal gain, but *Forrest Gump* reminds us that kindness, sincerity, and integrity are not weaknesses—they are strengths. It suggests that true success is not only about what we accomplish, but also about the person we choose to remain throughout the journey. Being both kind and successful is rare, and that is what makes Forrest's story so inspiring.",
+        "rating": 10
+      },
+      {
+        "watchYear": 2023,
+        "recommendTo": ["people who is struggling with his life"],
+        "opinion": "His life journey is showing how everything is not that diffucult. It is easy to complicate and that is what we usually do. In general his achievements are not about status and wealth, in general it can be simple human relationships. If you figure out simple mechanics of the things in life and you can do whatever you want. It seems like that mechanic can be discovered to specific person.",
+        "rating": 10
+      }
+    ]
+  }
+]
