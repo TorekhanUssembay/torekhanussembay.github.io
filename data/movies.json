@@ -19,5 +19,20 @@
         "rating": 10
       }
     ]
+  },
+  {
+    "id": "the-shawshank-redemption",
+    "title": "The Shawshank Redemption",
+    "director": "Frank Darabont",
+    "releaseYear": 1994,
+    "genres": ["prison-drama", "drama", "psychological-drama"],
+    "entries": [
+      {
+        "watchYear": 2015,
+        "recommendTo": ["people who believe in kindness"],
+        "opinion": "To me, the film was never primarily about revenge or even escaping prison. After all, even once Andy had escaped, he still had opportunities to pursue revenge if that had been his true motivation. Instead, I saw the prison as a metaphor for the invisible prisons we create within our own minds. The story suggests that genuine freedom is impossible without first confronting and redeeming ourselves. We must recognize the psychological or emotional prisons that confine us before we can find a way out. Only after that process of self-discovery and redemption can we experience true freedom, regardless of our physical circumstances.",
+        "rating": 10
+      }
+    ]
   }
 ]

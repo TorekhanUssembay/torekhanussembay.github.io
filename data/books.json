@@ -23,5 +23,20 @@
         "rating": 10
       }
     ]
+  },
+  {
+    "id": "secrets-of-the-millionaire-mind",
+    "title": "Secrets of the Millionaire Mind",
+    "author": "T. Harv Eker",
+    "language": "Russian",
+    "categories": ["nonfiction", "personal finance", "success psychology"],
+    "entries": [
+      {
+        "readYear": 2026,
+        "recommendTo": ["people struggling with money"],
+        "opinion": ["In my view, the book appears to function as an entry point into the author's broader ecosystem of seminars and courses, making it feel like part of a larger sales funnel. That said, I found the book worthwhile because it avoids presenting wealth as the result of simplistic or formulaic actions. Instead, it explores the psychological patterns, subconscious beliefs, and deeply rooted mindsets that can shape financial behavior and prevent people from building wealth. This emphasis on the mental and emotional dimensions of money distinguishes it from many conventional personal finance books that focus primarily on tactics rather than underlying causes."],
+        "rating": 7
+      }
+    ]
   }
 ]
