@@ -38,5 +38,35 @@
         "rating": 7
       }
     ]
+  },
+  {
+    "id": "guardian_of_silence",
+    "title": "Тыныштық күзетшісі (Guardian of peace)",
+    "author": "Dulat Issabekov (Дулат Исабеков)",
+    "language": "Kazakh",
+    "categories": ["historical fiction", "novel", "war literature"],
+    "entries": [
+      {
+        "readYear": 2026,
+        "recommendTo": ["whoever thinks wars is good"],
+        "opinion": ["The book shows how horrible war can be. It affects everyone—the young, the old, birds, dogs and even insects. I liked how it portrayed the suffering of people at home, far from the war zone, while their husbands, fathers and sons were away fighting. It reminds us that war hurts not only soldiers but everyone around them. But who cares?"],
+        "rating": 10
+      }
+    ]
+  },
+  {
+    "id": "think_like_an_artist",
+    "title": "Думай как художник (Think like an artist)",
+    "author": "Will Gompertz",
+    "language": "Russian",
+    "categories": ["nonfiction", "art", "psychology of creativity"],
+    "entries": [
+      {
+        "readYear": 2026,
+        "recommendTo": ["people looking for inspiration"],
+        "opinion": ["It changed my perception of art and artists. This book can replace many business books because it shows that everything around us is based on creativity—art, business, leadership, building and even the way we live."],
+        "rating": 10
+      }
+    ]
   }
 ]
